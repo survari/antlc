@@ -47,7 +47,7 @@ def parser(tokens):
 	if len(tokens) == 1 and len(tokens[0]) == 2 and tokens[0][0] in ['num','str','rcl','prm']:
 		return [tokens[0]]
 	if len(tokens) > 1 and tokens[0] == ('special','(') and tokens[1] == ('special',')'):
-		return parser([[]]+tokens[2:])
+		return parser([['nil']]+tokens[2:])
 	if len(tokens) > 2 and tokens[0] == ('special','('):
 		i = index_of_close(tokens)['index']
 		return parser([parser(tokens[1:i])]+tokens[1+i:])

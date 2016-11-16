@@ -11,7 +11,7 @@ app2
 app2
 app2
 stofac
-cls
+dsp
 fun21
 prm∘
 prm⍣
@@ -35,6 +35,6 @@ num1
 app2
 app2
 stofib
-cls
+dsp
 num0
-cls
+dsp

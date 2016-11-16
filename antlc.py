@@ -84,7 +84,7 @@ def generate(cmds):
 			res += cmd[0] + str(cmd[1]) + '\n'
 		else:
 			res += cmd + '\n'
-	res += 'cls'
+	res += 'dsp'
 	return res
 
 if __name__ == '__main__':

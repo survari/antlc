@@ -87,6 +87,8 @@ def generate(cmds):
 	res += 'dsp'
 	return res
 
+compiler = lambda string: generate(parser(lexer(string)))
+
 if __name__ == '__main__':
 	if len(argv) == 1:
 		while True:
@@ -105,7 +107,7 @@ if __name__ == '__main__':
 			antfile.close()
 			asm = ''
 			for line in lines:
-				asm += generate(parser(lexer(line))) + '\n'
+				asm += compiler(line) + '\n'
 			asmfile = open(filename+'.asm', 'w')
 			asmfile.write(asm)
 			asmfile.close()

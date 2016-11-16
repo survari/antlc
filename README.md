@@ -24,7 +24,5 @@ python3 antlc.py some.ant
 
 ```python
 import antlc
-tokens = antlc.lexer('2+2')
-ir = antlc.parser(tokens)
-ant_asm = antlc.generate(ir)
+antlc.compiler('2+2')
 ```

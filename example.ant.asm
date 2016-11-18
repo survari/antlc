@@ -36,5 +36,3 @@ app2
 app2
 stofib
 dsp
-num0
-dsp

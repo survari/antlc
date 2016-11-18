@@ -43,7 +43,7 @@ def index_of_close(tokens):
 
 def parser(tokens):
 	if len(tokens) == 0:
-		return [('num', 0)]
+		return []
 	if len(tokens) == 1 and len(tokens[0]) == 2 and tokens[0][0] in ['num','str','rcl','prm']:
 		return [tokens[0]]
 	if len(tokens) > 1 and tokens[0] == ('special','(') and tokens[1] == ('special',')'):
@@ -78,6 +78,7 @@ def parser(tokens):
 		raise Exception('Syntax Error')
 
 def generate(cmds):
+	if cmds == []: return ''
 	res = ''
 	for cmd in cmds:
 		if isinstance(cmd, tuple) and len(cmd) == 2:
@@ -107,7 +108,9 @@ if __name__ == '__main__':
 			antfile.close()
 			asm = ''
 			for line in lines:
-				asm += compiler(line) + '\n'
+				result = compiler(line)
+				if result != '':
+					asm += result + '\n'
 			asmfile = open(filename+'.asm', 'w')
 			asmfile.write(asm)
 			asmfile.close()

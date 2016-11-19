@@ -1,2 +1,3 @@
+)"example2"
 fac:{1×/1+range∘x}
 fib:{({x,0+/-2⌷x}⍣x)∘0,1}

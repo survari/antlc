@@ -1,3 +1,8 @@
+prm∘
+rclecho
+strhi
+app2
+dsp
 fun11
 prm×
 rdc

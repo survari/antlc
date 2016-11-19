@@ -46,6 +46,12 @@ def parser(tokens):
 		return []
 	if len(tokens) == 1 and len(tokens[0]) == 2 and tokens[0][0] in ['num','str','rcl','prm']:
 		return [tokens[0]]
+	if len(tokens) == 2 and tokens[0] == ('special', ')') and tokens[1][0] == 'str':
+		content = open(tokens[1][1]+'.ant').read()
+		r= map(lambda s: parser(lexer(s)), content.split('\n'))
+		s= []
+		for r in r: s+=r
+		return s
 	if len(tokens) > 1 and tokens[0] == ('special','(') and tokens[1] == ('special',')'):
 		return parser([['nil']]+tokens[2:])
 	if len(tokens) > 2 and tokens[0] == ('special','('):

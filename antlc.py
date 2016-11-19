@@ -18,7 +18,7 @@ def lexer(string):
 		if bool(re.match('^('+num+'|'+frac+')$', token)):
 			result.append(('num',eval(token)))
 		elif token.startswith('"'):
-			result.append(('str',token[1:-1]))
+			result.append(('str',token[1:-1].replace('\n',' ')))
 		elif token in ['(',')','{','}','/',':',';']:
 			result.append(('special',token))
 		elif bool(re.match('^'+word+'$', token)):
